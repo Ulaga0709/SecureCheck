@@ -1,82 +1,98 @@
+# 🚨 Traffic Stops Dashboard
 
-# 🚦 SecureCheck: Traffic Stop Analysis Dashboard
+A powerful interactive dashboard built with **Streamlit** and connected to a **PostgreSQL** database. The app lets users explore traffic stop data with real-time filters, charts, and statistics.
 
-SecureCheck is a powerful data dashboard that visualizes traffic stop records, violations, and arrest patterns using interactive Streamlit components.
+---
+
+## 🌐 Live URLs
+
+- **Frontend App (Streamlit):**  
+  🔗 [https://securecheck.streamlit.app](https://securecheck.streamlit.app)
+
+- **Backend Database (Render - PostgreSQL):**  
+  🔗 `postgresql://securecheck_db_user:1WP1VTR2YZyM9aV49qpJJvghKyXSFBjo@dpg-d1758vmmcj7s73cpt7m0-a.oregon-postgres.render.com/securecheck_db`
+
+> **Note**: The backend URL is private and should be used securely inside environment variables or `secrets.toml`.
 
 ---
 
 ## 📊 Features
 
-- 🔍 **Explore full traffic stop data**
-- 📈 **Visualizations** of violation types, arrest patterns, and search conduct
-- 🌍 **Country-wise analysis**
-- 🧠 **Insightful summaries** of driver demographics
-- 🗃️ Backed by **PostgreSQL** database
-- ⚡ Built using **Streamlit**, **pandas**, **SQLAlchemy**, **psycopg2**
+- 📋 View full traffic stop dataset
+- 🔎 Filter by country, gender, and violation
+- 📈 Bar charts for violations & driver race
+- 🧁 Pie chart for gender distribution
+- 📅 (Optional) Time trend line chart
+- ⚡ Real-time updates via Streamlit UI
 
 ---
 
-## 🧰 Technologies Used
+## 🛠️ Tech Stack
 
-| Tool         | Purpose                         |
-|--------------|----------------------------------|
-| Streamlit    | Web app / dashboard              |
-| pandas       | Data manipulation                |
-| SQLAlchemy   | Database ORM layer               |
-| psycopg2     | PostgreSQL connection            |
-| PostgreSQL   | Database                         |
-| matplotlib   | Charts (optional)                |
-
----
-
-## 🏁 How to Run Locally
-
-1. 🔽 Clone this repo:
-   ```bash
-   git clone https://github.com/Sivakami/SecureCheck.git
-   cd SecureCheck
-   ```
-
-2. ⚙️ Set up virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate
-   pip install -r requirements.txt
-   ```
-
-3. 🛢️ Configure DB connection inside `main.py`:
-   ```python
-   engine = create_engine("postgresql+psycopg2://postgres:<your_password>@localhost:5432/securecheck_db")
-   ```
-
-4. 🚀 Run the app:
-   ```bash
-   streamlit run main.py
-   ```
+| Layer       | Tech             |
+|-------------|------------------|
+| Frontend    | Streamlit        |
+| Backend     | PostgreSQL (Render) |
+| ORM         | SQLAlchemy       |
+| Data        | Pandas           |
+| Viz         | matplotlib, Streamlit Charts |
 
 ---
 
-## 📦 Folder Structure
+## 🚀 Getting Started Locally
 
+### 1. Clone the repository
+```bash
+git clone https://github.com/Ulaga0709/traffic-stops-dashboard.git
+cd traffic-stops-dashboard
 ```
-SecureCheck/
-│
-├── traffic_stops - traffic_stops_with_vehicle_number.csv
-├── insert_data.py         # Script to insert CSV into DB
-├── main.py                # Streamlit dashboard
-├── requirements.txt       # Python dependencies
-└── README.md              # Project info
+
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Create `.streamlit/secrets.toml`
+```toml
+DB_URL = "postgresql+psycopg2://securecheck_db_user:1WP1VTR2YZyM9aV49qpJJvghKyXSFBjo@dpg-d1758vmmcj7s73cpt7m0-a.oregon-postgres.render.com/securecheck_db"
+```
+
+### 4. Run the app
+```bash
+streamlit run main.py
 ```
 
 ---
 
-## 👩‍💻 Author
+## 📂 Project Structure
 
-**Sivakami**  
-GitHub: [github.com/Sivakami](https://github.com/Sivakami)
+```
+.
+├── main.py                 # Streamlit app
+├── insert_data.py          # CSV to DB upload script
+├── requirements.txt        # Python dependencies
+├── schema.sql              # Table schema
+├── README.md               # You're here
+├── .streamlit/
+│   └── secrets.toml        # Contains DB credentials
+```
+
+---
+
+## 📷 Screenshot
+
+![Dashboard Screenshot](screenshot.png)
+
+---
+
+## 👤 Author
+
+**Sivakami (Ulaga0709)**  
+🔗 GitHub: [https://github.com/Ulaga0709](https://github.com/Ulaga0709)
 
 ---
 
 ## 📄 License
 
-MIT License – use freely for learning and development!
+This project is licensed under the **MIT License**.  
+Feel free to use and modify it for your own projects.
